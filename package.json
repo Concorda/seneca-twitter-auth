@@ -1,0 +1,33 @@
+{
+  "name": "seneca-twitter-auth",
+  "version": "0.1.0",
+  "description": "twitter auth plugin for seneca-auth",
+  "main": "twitter-auth.js",
+  "scripts": {
+    "test": "mocha test --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nherment/seneca-twitter-auth.git"
+  },
+  "keywords": [
+    "seneca",
+    "oauth",
+    "auth",
+    "twitter",
+    "plugin"
+  ],
+  "author": "Nicolas Herment <nherment@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nherment/seneca-twitter-auth/issues"
+  },
+  "homepage": "https://github.com/nherment/seneca-twitter-auth",
+  "dependencies": {
+    "passport-twitter": "^1.0.2"
+  },
+  "peerDependencies": {
+    "seneca-auth": "*",
+    "seneca": "*"
+  }
+}
