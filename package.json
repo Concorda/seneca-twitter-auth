@@ -1,6 +1,6 @@
 {
   "name": "seneca-twitter-auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "twitter auth plugin for seneca-auth",
   "main": "twitter-auth.js",
   "scripts": {
