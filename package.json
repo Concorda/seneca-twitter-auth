@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/nherment/seneca-twitter-auth",
   "dependencies": {
-    "passport-twitter": "^1.0.2"
+    "passport-twitter": "1.0.2"
   },
   "peerDependencies": {
     "seneca-auth": "*",
