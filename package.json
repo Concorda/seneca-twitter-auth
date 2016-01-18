@@ -4,7 +4,7 @@
   "description": "twitter auth plugin for seneca-auth",
   "main": "twitter-auth.js",
   "scripts": {
-    "test": "mocha test --reporter spec"
+    "test": "echo no tests"
   },
   "repository": {
     "type": "git",
