@@ -1,31 +1,52 @@
-
-var TwitterStrategy = require('passport-twitter').Strategy
+var error = require('eraro')({
+  package: 'twitter-auth'
+})
 
 module.exports = function (options) {
-
   var seneca = this
+  var internals = {}
+  internals.accepted_framworks = [
+    'express',
+    'hapi'
+  ]
+  internals.options = options
 
-  var authPlugin = new TwitterStrategy({
-      consumerKey:    options.apiKey,
-      consumerSecret: options.apiSecret,
-      callbackURL:    options.urlhost + "/auth/twitter/callback"
-    },
-    function (token, tokenSecret, profile, done) {
-      var data = {
-        nick:         profile.username,
-        name:         profile.displayName,
-        identifier:   '' + profile.id,
-        credentials:  {token: token, secret: tokenSecret},
-        userdata:     profile,
-        when:         new Date().toISOString()
-      }
-      done(null, data)
+  if (!options.framework) {
+    options.framework = 'express'
+  }
+
+  internals.choose_framework = function () {
+    if ('express' === internals.options.framework) {
+      internals.load_express_implementation()
     }
-  )
+    else {
+      internals.load_hapi_implementation()
+    }
+  }
 
-  seneca.act({role: 'auth', cmd: 'register_service', service: 'twitter', plugin: authPlugin, conf: options})
+  internals.check_options = function () {
+    if (seneca.options().plugin.web && seneca.options().plugin.web.framework) {
+      internals.options.framework = seneca.options().plugin.web.framework
+    }
+
+    if (internals.accepted_framworks.indexOf(internals.options.framework) === -1) {
+      throw error('Framework type <' + internals.options.framework + '> not supported.')
+    }
+  }
+
+  internals.load_express_implementation = function () {
+    seneca.use(require('./lib/express-twitter-auth'), internals.options)
+  }
+
+  internals.load_hapi_implementation = function () {
+    seneca.use(require('./lib/hapi-twitter-auth'), internals.options)
+  }
+
+  internals.check_options()
+  internals.choose_framework()
 
   return {
     name: 'twitter-auth'
   }
 }
+
