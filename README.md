@@ -14,7 +14,7 @@ If you're using this plugin module, feel to contact on twitter if you have any q
 seneca-twitter-auth's source can be read in an annotated fashion by,
 
 - running `npm run annotate`
-- viewing [online](http://htmlpreview.github.com/?https://github.com/shanel262/twitter-auth/blob/master/docs/twitter-auth.html).
+- viewing [online](http://htmlpreview.github.com/?https://github.com/shanel262/seneca-twitter-auth/blob/master/docs/twitter-auth.html).
 
 The annotated source can be found locally at [./docs/twitter-auth.html](./docs/twitter-auth.html).
 
