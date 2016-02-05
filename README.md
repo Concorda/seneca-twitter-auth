@@ -8,8 +8,6 @@
 [![Dependency Status][david-badge]][david-url]
 [![Gitter chat][gitter-badge]][gitter-url]
 
-Lead Maintainer: [Mircea Alexandru](https://github.com/mirceaalexandru)
-
 This plugin is used by [seneca-auth](https://www.npmjs.com/package/seneca-auth) for authenticating via twitter login.
 It uses [PassportJS](http://passportjs.org). The [seneca-auth](https://www.npmjs.com/package/seneca-auth) is the
 authentication plugin used by [Seneca](http://senecajs.org) toolkit.
@@ -89,7 +87,7 @@ The [Senecajs org](https://github.com/senecajs/) encourage open participation. I
 documentation, examples, extra testing, or new features please get in touch.
 
 ## License
-Copyright Mircea Alexandru and other contributors 2016, Licensed under [MIT](./LICENSE).
+Copyright Nicolas Herment and other contributors 2016, Licensed under [MIT](./LICENSE).
 
 [npm-badge]: https://badge.fury.io/js/seneca-local-auth.svg
 [npm-url]: https://badge.fury.io/js/seneca-local-auth
