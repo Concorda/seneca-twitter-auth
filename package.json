@@ -21,6 +21,13 @@
   ],
   "author": "Nicolas Herment <nherment@gmail.com>",
   "license": "MIT",
+  "contributors": [
+    {
+      "name": "Shane Lacey",
+      "email": "shane.lacey@nearform.com",
+      "url": "https://github.com/shanel262"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/nherment/seneca-twitter-auth/issues"
   },
