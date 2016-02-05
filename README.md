@@ -3,8 +3,6 @@
 
 # seneca-twitter-auth
 
-[![npm version][npm-badge]][npm-url]
-[![Build Status][travis-badge]][travis-url]
 [![Dependency Status][david-badge]][david-url]
 [![Gitter chat][gitter-badge]][gitter-url]
 
@@ -89,11 +87,7 @@ documentation, examples, extra testing, or new features please get in touch.
 ## License
 Copyright Nicolas Herment and other contributors 2016, Licensed under [MIT](./LICENSE).
 
-[npm-badge]: https://badge.fury.io/js/seneca-local-auth.svg
-[npm-url]: https://badge.fury.io/js/seneca-local-auth
-[david-badge]: https://david-dm.org/mirceaalexandru/seneca-local-auth.svg
-[david-url]: https://david-dm.org/mirceaalexandru/seneca-local-auth
+[david-badge]: https://david-dm.org/mirceaalexandru/seneca-twitter-auth.svg
+[david-url]: https://david-dm.org/mirceaalexandru/seneca-twitter-auth
 [gitter-badge]: https://badges.gitter.im/senecajs/seneca.png
 [gitter-url]: https://gitter.im/senecajs/seneca
-[travis-badge]: https://travis-ci.org/mirceaalexandru/seneca-local-auth.svg
-[travis-url]: https://travis-ci.org/mirceaalexandru/seneca-local-auth
