@@ -87,7 +87,7 @@ documentation, examples, extra testing, or new features please get in touch.
 ## License
 Copyright Nicolas Herment and other contributors 2016, Licensed under [MIT](./LICENSE).
 
-[david-badge]: https://david-dm.org/mirceaalexandru/seneca-twitter-auth.svg
-[david-url]: https://david-dm.org/mirceaalexandru/seneca-twitter-auth
+[david-badge]: https://david-dm.org/senecajs/seneca-twitter-auth.svg
+[david-url]: https://david-dm.org/senecajs/seneca-twitter-auth
 [gitter-badge]: https://badges.gitter.im/senecajs/seneca.png
 [gitter-url]: https://gitter.im/senecajs/seneca
