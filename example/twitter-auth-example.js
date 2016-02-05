@@ -2,9 +2,9 @@
 'use strict'
 
 
-var HTTP = require('http')
+var Http = require('http')
 
-var EXPRESS = require('express')
+var Express = require('express')
 var argv = require('optimist').argv
 
 
@@ -39,18 +39,18 @@ seneca.use('twitter-auth')
 
 
 // use the express module in the normal way
-var app = EXPRESS()
+var app = Express()
 app.enable('trust proxy')
 
-app.use(EXPRESS.cookieParser())
-app.use(EXPRESS.query())
-app.use(EXPRESS.bodyParser())
-app.use(EXPRESS.methodOverride())
-app.use(EXPRESS.json())
+app.use(Express.cookieParser())
+app.use(Express.query())
+app.use(Express.bodyParser())
+app.use(Express.methodOverride())
+app.use(Express.json())
 
-app.use(EXPRESS.session({secret: 'seneca'}))
+app.use(Express.session({secret: 'seneca'}))
 
-app.use(EXPRESS.static(__dirname + '/public'))
+app.use(Express.static(__dirname + '/public'))
 
 
 // add any middleware provided by seneca plugins
@@ -86,7 +86,7 @@ u.register({nick: 'a1', name: 'na1', email: 'a1@example.com', password: 'a1', ac
 
 // create a HTTP server using the core Node API
 // this lets the admin plugin use web sockets
-var server = HTTP.createServer(app)
+var server = Http.createServer(app)
 server.listen(conf.port)
 
 // visit http://localhost[:port]/admin to see the admin page

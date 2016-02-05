@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha test --reporter spec",
     "lint": "lab test -dL",
-    "annotate": "docco local-auth.js -o doc"
+    "annotate": "docco twitter-auth.js -o doc"
   },
   "repository": {
     "type": "git",
