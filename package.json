@@ -22,9 +22,9 @@
   "author": "Nicolas Herment <nherment@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nherment/seneca-twitter-auth/issues"
+    "url": "https://github.com/senecajs/seneca-twitter-auth/issues"
   },
-  "homepage": "https://github.com/nherment/seneca-twitter-auth",
+  "homepage": "https://github.com/senecajs/seneca-twitter-auth",
   "dependencies": {
     "passport-twitter": "1.0.4"
   },
