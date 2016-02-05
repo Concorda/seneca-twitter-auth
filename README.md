@@ -9,6 +9,15 @@ For a gentle introduction to Seneca itself, see the [senecajs.org](http://seneca
 
 If you're using this plugin module, feel to contact on twitter if you have any questions! :) [@rjrodger](http://twitter.com/rjrodger)
 
+## About
+
+seneca-twitter-auth's source can be read in an annotated fashion by,
+
+- running `npm run annotate`
+- viewing [online](http://htmlpreview.github.com/?https://github.com/senecajs/seneca-twitter-auth/blob/master/docs/twitter-auth.html).
+
+The annotated source can be found locally at [./docs/twitter-auth.html](./docs/twitter-auth.html).
+
 ### Install
 
 ```sh
@@ -53,3 +62,6 @@ The JSON object provided for this action contains following data from Twitter lo
 
 
 Register your app on [twitter](https://apps.twitter.com/)
+
+## License
+Copyright Mircea Alexandru and other contributors 2016, Licensed under [MIT](./LICENSE).
