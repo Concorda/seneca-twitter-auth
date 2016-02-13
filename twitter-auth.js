@@ -1,40 +1,60 @@
+var error = require('eraro')({
+  package: 'twitter-auth'
+})
 
-var TwitterStrategy = require('passport-twitter').Strategy
+var CommonAuth = require('./lib/common-twitter-auth')
+var ExpressAuth = require('./lib/express-twitter-auth')
+var HapiAuth = require('./lib/hapi-twitter-auth')
 
-module.exports = function (opt) {
-  var options = opt || {}
+module.exports = function (options) {
   var seneca = this
+  var internals = {}
+  internals.accepted_framworks = [
+    'express',
+    'hapi'
+  ]
+  internals.options = options
 
-  var authPlugin = new TwitterStrategy({
-    consumerKey: options.apiKey,
-    consumerSecret: options.apiSecret,
-    callbackURL: options.urlhost + (options.callbackUrl || '/auth/twitter/callback')
-  },
-    function (accessToken, tokenSecret, profile, done) {
-      seneca.act({role: 'auth', prepare: 'twitter_login_data', accessToken: accessToken, tokenSecret: tokenSecret, profile: profile}, done)
-    }
-  )
-
-  var prepareLoginData = function (args, cb) {
-    var accessToken = args.accessToken
-    var tokenSecret = args.tokenSecret
-    var profile = args.profile
-
-    var data = {
-      nick: profile.username,
-      name: profile.displayName,
-      identifier: '' + profile.id,
-      credentials: {token: accessToken, secret: tokenSecret},
-      userdata: profile,
-      when: new Date().toISOString()
-    }
-    cb(null, data)
+  if (!options.framework) {
+    options.framework = 'express'
   }
 
+  internals.choose_framework = function () {
+    if (internals.options.framework === 'express') {
+      internals.load_express_implementation()
+    }
+    else {
+      internals.load_hapi_implementation()
+    }
+  }
 
-  seneca.add({role: 'auth', prepare: 'twitter_login_data'}, prepareLoginData)
+  internals.check_options = function () {
+    if (seneca.options().plugin.web && seneca.options().plugin.web.framework) {
+      internals.options.framework = seneca.options().plugin.web.framework
+    }
 
-  seneca.act({role: 'auth', cmd: 'register_service', service: 'twitter', plugin: authPlugin, conf: options})
+    if (internals.accepted_framworks.indexOf(internals.options.framework) === -1) {
+      throw error('Framework type <' + internals.options.framework + '> not supported.')
+    }
+  }
+
+  internals.load_express_implementation = function () {
+    seneca.use(ExpressAuth, internals.options)
+    seneca.use(CommonAuth, internals.options)
+  }
+
+  internals.load_hapi_implementation = function () {
+    seneca.use(HapiAuth, internals.options)
+    seneca.use(CommonAuth, internals.options)
+  }
+
+  function init (args, done) {
+    internals.check_options()
+    internals.choose_framework()
+    done()
+  }
+
+  seneca.add('init: twitter-auth', init)
 
   return {
     name: 'twitter-auth'
